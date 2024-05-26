@@ -1,11 +1,8 @@
 package com.assignement.carhireservice.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.sql.Date;
 import java.util.UUID;
 
 @Entity
@@ -34,6 +31,9 @@ public class Address {
     @Column(name = "postCode")
     String PostCode;
 
+    @Column(name = "timeStamp")
+    @Temporal(TemporalType.DATE)
+    Date timeStamp;
 
     public UUID getId() {
         return Id;
@@ -89,5 +89,13 @@ public class Address {
 
     public void setPostCode(String postCode) {
         PostCode = postCode;
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }

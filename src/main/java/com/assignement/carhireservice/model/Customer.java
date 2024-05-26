@@ -1,13 +1,6 @@
 package com.assignement.carhireservice.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -29,10 +22,10 @@ public class Customer {
     @Column(nullable = false,name = "DOB")
     String dob;
 
-    @OneToOne
-    com.assignement.carhireservice.model.Address address;
+    @OneToMany(cascade = CascadeType.ALL)
+    List<com.assignement.carhireservice.model.Address> address;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     List<PhoneNumber> phoneNumbers;
 
     @OneToMany
@@ -70,11 +63,11 @@ public class Customer {
         this.dob = dob;
     }
 
-    public Address getAddress() {
+    public List<Address> getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(List<Address> address) {
         this.address = address;
     }
 

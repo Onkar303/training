@@ -1,6 +1,6 @@
 package com.assignement.carhireservice.repository;
 
-import com.assignement.carhireservice.model.Customer;
+import com.assignement.carhireservice.model.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -8,16 +8,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.UUID;
 
-
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, UUID> {
+public interface AddressRepository extends CrudRepository<Address, UUID>, JpaRepository<Address,UUID> {
 
-    Customer save(Customer customer);
+    Address findAddressById(UUID id);
 
-    List<Customer> findAll();
+//    List<Address> findAllAddressesByCustomerId(UUID id);
 
-    Customer findCustomerById(UUID id);
 
-//    boolean exists(Customer customer);
 
 }

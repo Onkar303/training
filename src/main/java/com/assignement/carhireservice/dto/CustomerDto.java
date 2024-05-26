@@ -19,7 +19,7 @@ public interface CustomerDto {
     String getDob();
 
     @Nullable
-    AddressDto getAddress();
+    List<AddressDto> getAddress();
 
     @Nullable
     List<PhoneNumberDto> getPhoneNumbers();
