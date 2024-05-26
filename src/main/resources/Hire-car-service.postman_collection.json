@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "4b397123-b1e0-4b9a-b333-3fcf004f8fd9",
+		"name": "Hire-car-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2619271"
+	},
+	"item": [
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "get all cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find car by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/car/8efc614f-a078-4d3b-aacc-430ef9e6e83a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"car",
+								"8efc614f-a078-4d3b-aacc-430ef9e6e83a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "get all customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find customer by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/5a517544-8e2e-4ab6-9991-14b4cef89ccd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"5a517544-8e2e-4ab6-9991-14b4cef89ccd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all addresses by customer id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/address/8bcf0b1b-fa48-4bcd-8fcf-0c3dd6fde062",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"address",
+								"8bcf0b1b-fa48-4bcd-8fcf-0c3dd6fde062"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Onkar\",\n    \"lastName\": \"Kalpavriksha\",\n    \"dob\": \"13/06/1994\",\n    \"address\": [\n        {\n            \"streetNumber\": \"18\",\n            \"streetName\": \"Disraeli\",\n            \"streetType\": \"ST\",\n            \"suburb\": \"Indooroopilly\",\n            \"state\": \"OLD\",\n            \"postCode\": \"4068\"\n        }\n    ],\n    \"phoneNumbers\": [\n        {\n            \"phoneNumber\": \"0423122287\",\n            \"phoneType\": \"MOBILE\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "new booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"customerId\":\"9464ad1f-8ea2-41a5-a325-9cb53fbfd285\",\n   \"carId\":\"1d99b033-8757-4c1a-90b4-25a2f9e39a9d\",\n   \"startBookingDate\":\"10/12/2024\",\n   \"endBookingDate\":\"12/12/2024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/booking/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"booking",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/booking/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"booking",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
