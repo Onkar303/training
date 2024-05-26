@@ -1,17 +1,29 @@
 package com.assignement.carhireservice.model;
 
-
 import com.assignement.carhireservice.constants.PhoneType;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.immutables.value.Value;
 
+import java.util.UUID;
+
+@Entity
+@Table(name = "PhoneNumber")
 @Value.Immutable
-@JsonSerialize(as = ImmutablePhoneNumber.class)
-@JsonDeserialize(as = ImmutablePhoneNumber.class)
-public interface PhoneNumber {
+public class PhoneNumber {
 
-    String getPhoneNumber();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    UUID Id;
 
-    PhoneType getPhoneType();
+    @Column(name = "phoneNumber")
+    String PhoneNumber;
+
+    @Column(name = "phoneType")
+    PhoneType PhoneType;
+
 }

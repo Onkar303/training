@@ -1,25 +1,93 @@
 package com.assignement.carhireservice.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.immutables.value.Value;
+import java.util.UUID;
 
-@Value.Immutable
-@JsonSerialize(as = ImmutableAddress.class)
-@JsonDeserialize(as =  ImmutableAddress.class)
-public interface Address {
+@Entity
+@Table(name="Address")
+public class Address {
 
-    String getStreetNumber();
+    @Id
+    @GeneratedValue()
+    UUID Id;
 
-    String getStreetName();
+    @Column(name = "streetNumber")
+    String StreetNumber;
 
-    String getStreetType();
+    @Column(name = "streetName")
+    String StreetName;
 
-    String getSuburb();
+    @Column(name = "streetType")
+    String StreetType;
 
-    String getState();
+    @Column(name = "suburb")
+    String Suburb;
 
-    String getPostCode();
+    @Column(name = "state")
+    String State;
 
+    @Column(name = "postCode")
+    String PostCode;
+
+
+    public UUID getId() {
+        return Id;
+    }
+
+    public void setId(UUID id) {
+        Id = id;
+    }
+
+    public String getStreetNumber() {
+        return StreetNumber;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        StreetNumber = streetNumber;
+    }
+
+    public String getStreetName() {
+        return StreetName;
+    }
+
+    public void setStreetName(String streetName) {
+        StreetName = streetName;
+    }
+
+    public String getStreetType() {
+        return StreetType;
+    }
+
+    public void setStreetType(String streetType) {
+        StreetType = streetType;
+    }
+
+    public String getSuburb() {
+        return Suburb;
+    }
+
+    public void setSuburb(String suburb) {
+        Suburb = suburb;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String state) {
+        State = state;
+    }
+
+    public String getPostCode() {
+        return PostCode;
+    }
+
+    public void setPostCode(String postCode) {
+        PostCode = postCode;
+    }
 }

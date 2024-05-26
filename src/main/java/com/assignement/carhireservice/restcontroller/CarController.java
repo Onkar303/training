@@ -1,6 +1,6 @@
 package com.assignement.carhireservice.restcontroller;
 
-import com.assignement.carhireservice.dto.Car;
+import com.assignement.carhireservice.model.Car;
 import com.assignement.carhireservice.service.CarService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

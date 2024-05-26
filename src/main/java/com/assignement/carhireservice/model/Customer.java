@@ -1,24 +1,96 @@
 package com.assignement.carhireservice.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.immutables.value.Value;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 import java.util.List;
+import java.util.UUID;
 
-@Value.Immutable
-@JsonSerialize(as = ImmutableCustomer.class)
-@JsonDeserialize(as = ImmutableCustomer.class)
-public interface Customer {
+@Entity
+@Table(name = "Customer")
+public class Customer {
 
-    String getFirstName();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    UUID id;
 
-    String getLastName();
+    @Column(nullable = false,name = "firstName")
+    String firstName;
 
-    String getDob();
+    @Column(nullable = false,name = "lastName")
+    String lastName;
 
-    Address getAddress();
+    @Column(nullable = false,name = "DOB")
+    String dob;
 
-    List<PhoneNumber> getPhoneNumbers();
+    @OneToOne
+    com.assignement.carhireservice.model.Address address;
 
+    @OneToMany
+    List<PhoneNumber> phoneNumbers;
+
+    @OneToMany
+    List<Booking> bookings;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<PhoneNumber> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 }

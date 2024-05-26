@@ -1,6 +1,6 @@
 package com.assignement.carhireservice.service;
 
-import com.assignement.carhireservice.dto.Car;
+import com.assignement.carhireservice.model.Car;
 import com.assignement.carhireservice.repository.CarRepository;
 import org.springframework.stereotype.Service;
 

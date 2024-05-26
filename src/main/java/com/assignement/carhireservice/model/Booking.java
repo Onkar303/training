@@ -1,4 +1,4 @@
-package com.assignement.carhireservice.dto;
+package com.assignement.carhireservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
