@@ -13,8 +13,4 @@ public interface AddressRepository extends CrudRepository<Address, UUID>, JpaRep
 
     Address findAddressById(UUID id);
 
-//    List<Address> findAllAddressesByCustomerId(UUID id);
-
-
-
 }

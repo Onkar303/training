@@ -12,4 +12,6 @@ public interface CarRepository extends CrudRepository<Car, UUID> {
     List<Car> findAll();
 
     Car findCarById(UUID id);
+
+    Car save(Car car);
 }

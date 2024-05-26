@@ -32,11 +32,4 @@ public class CarController {
         return this.carService.findCarById(id);
     }
 
-    @GetMapping()
-    public void getAvailableCars(){
-
-    }
-
-
-
 }

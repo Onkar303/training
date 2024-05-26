@@ -1,0 +1,10 @@
+package com.assignement.carhireservice.dto;
+
+import org.immutables.value.Value;
+
+@Value.Immutable
+public interface BookingResponseDto {
+
+    String getBookingId();
+
+}

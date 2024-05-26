@@ -1,5 +1,6 @@
 package com.assignement.carhireservice.repository;
 
+import com.assignement.carhireservice.model.Address;
 import com.assignement.carhireservice.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
@@ -17,7 +18,4 @@ public interface CustomerRepository extends JpaRepository<Customer, UUID> {
     List<Customer> findAll();
 
     Customer findCustomerById(UUID id);
-
-//    boolean exists(Customer customer);
-
 }

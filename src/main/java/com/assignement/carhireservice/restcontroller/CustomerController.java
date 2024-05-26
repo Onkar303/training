@@ -39,5 +39,9 @@ public class CustomerController {
     }
 
 
+    @GetMapping("/address/{id}")
+    public List<Address> findAllAddressesByCustomerId(@PathVariable("id") UUID id){
+        return this.customerService.findAllAddressesByCustomerId(id);
+    }
 
 }

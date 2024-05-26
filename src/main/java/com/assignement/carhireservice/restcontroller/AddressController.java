@@ -14,7 +14,6 @@ public class AddressController {
 
     AddressService addressService;
 
-
     public AddressController(AddressService addressService) {
         this.addressService = addressService;
     }
@@ -22,13 +21,5 @@ public class AddressController {
     public Address findAddressById(UUID addressId){
         return addressService.findAddressById(addressId);
     }
-
-
-//    public List<Address> findAllAddressesByCustomerId(UUID customerId) {
-//        return addressService.findAllAddressesByCustomerId(customerId);
-//    }
-
-
-
 
 }

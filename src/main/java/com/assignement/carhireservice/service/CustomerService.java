@@ -1,14 +1,13 @@
 package com.assignement.carhireservice.service;
 
-import com.assignement.carhireservice.dto.AddressDto;
 import com.assignement.carhireservice.dto.CustomerDto;
 import com.assignement.carhireservice.mapper.AddressMapper;
+import com.assignement.carhireservice.mapper.CustomerMapper;
 import com.assignement.carhireservice.model.Address;
 import com.assignement.carhireservice.model.Customer;
 import com.assignement.carhireservice.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,24 +15,19 @@ import java.util.UUID;
 public class CustomerService {
 
     CustomerRepository customerRepository;
+    CustomerMapper customerMapper;
     AddressMapper addressMapper;
 
-    public CustomerService(CustomerRepository customerRepository,AddressMapper addressMapper) {
+
+    public CustomerService(CustomerRepository customerRepository,AddressMapper addressMapper,CustomerMapper customerMapper) {
         this.addressMapper = addressMapper;
         this.customerRepository = customerRepository;
+        this.customerMapper = customerMapper;
     }
 
 
     public Customer addNewCustomer(CustomerDto customerDto) throws Exception {
-        Customer customer = new Customer();
-        customer.setFirstName(customerDto.getFirstName());
-        customer.setLastName(customerDto.getLastName());
-        customer.setDob(customerDto.getDob());
-
-        customer.setAddress(getAllAddress(customerDto.getAddress()));
-
-        return  customerRepository.save(customer);
-
+        return  customerRepository.save(customerMapper.customerDtoToCustomer(customerDto));
     }
 
     public List<Customer> getAllCustomers(){
@@ -44,16 +38,7 @@ public class CustomerService {
         return this.customerRepository.findCustomerById(id);
     }
 
-    private List<Address> getAllAddress(List<AddressDto> addressDtoList){
-
-        List<Address> addressList = new ArrayList<>();
-
-        addressDtoList.forEach(addressDto -> {
-            addressList.add(addressMapper.addressDtoToAddress(addressDto));
-        });
-
-        return addressList;
+    public List<Address> findAllAddressesByCustomerId(UUID customerId){
+        return this.customerRepository.findCustomerById(customerId).getAddress();
     }
-
-
 }

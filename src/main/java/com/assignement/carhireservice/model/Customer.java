@@ -28,7 +28,7 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL)
     List<PhoneNumber> phoneNumbers;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     List<Booking> bookings;
 
     public UUID getId() {

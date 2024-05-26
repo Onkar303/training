@@ -1,12 +1,6 @@
 package com.assignement.carhireservice.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.List;
@@ -27,7 +21,7 @@ public class Car {
     @Column(name = "carModel")
     String CarModel;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     List<Booking> bookings;
 
     public UUID getId() {
